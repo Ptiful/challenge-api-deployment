@@ -33,11 +33,7 @@ class Item(BaseModel):
 
 @app.get("/")
 async def root():
-    response = requests.get("http://127.0.0.1:8000/").json()
-    if response == 200:
-        return print("alive")
-    else:
-        print("Server is out there but not with us")
+    return print("alive")
 
 
 @app.post("/predict")
