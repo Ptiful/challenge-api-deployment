@@ -2,34 +2,6 @@ import pandas as pd
 import re
 import urllib.parse
 
-columns = [
-    "Building condition",
-    "Number of frontages",
-    "Surroundings type",
-    "Living area",
-    "Living room surface",
-    "Kitchen type",
-    "Bedrooms",
-    "Bathrooms",
-    "Shower rooms",
-    "Toilets",
-    "Basement",
-    "Furnished",
-    "Terrace",
-    "Elevator",
-    "Swimming pool",
-    "Energy class",
-    "Heating type",
-    "Price",
-    "Flood zone type",
-    "Garden",
-    "zipcode",
-    "building_type",
-    "building_subtype",
-    "municipality",
-    "province",
-]
-
 df = pd.read_csv("assets/immoweb_properties_data.csv")
 
 df = df[df["url"].str.contains("new-real-estate-project") == False]
@@ -222,6 +194,33 @@ def clean_df(abcd):
     return abcd
 
 
+columns = [
+    "Building condition",
+    "Number of frontages",
+    "Surroundings type",
+    "Living area",
+    "Living room surface",
+    "Kitchen type",
+    "Bedrooms",
+    "Bathrooms",
+    "Shower rooms",
+    "Toilets",
+    "Basement",
+    "Furnished",
+    "Terrace",
+    "Elevator",
+    "Swimming pool",
+    "Energy class",
+    "Heating type",
+    "Price",
+    "Flood zone type",
+    "Garden",
+    "zipcode",
+    "building_type",
+    "building_subtype",
+    "municipality",
+    "province",
+]
 df = clean_df(df)
 df = df[columns]
 renaming_dict = {
@@ -290,9 +289,7 @@ df = df[
 ]
 
 if __name__ == "__main__":
-    df = pd.read_csv("assets\immoweb_properties_data.csv")
-    df = split_url_info(df)
-    print(df.head())
+    df = pd.read_csv("assets/immoweb_properties_data.csv")
 
     columns = [
         "Building condition",
@@ -320,7 +317,9 @@ if __name__ == "__main__":
         "Garden",
     ]
 
-    old_csv = pd.read_csv("assets\immoweb_properties_data.csv")
+    df = split_url_info(df)
+
+    old_csv = pd.read_csv("assets/immoweb_properties_data.csv")
     good_csv = old_csv[old_csv["url"].str.contains("new-real-estate-project") == False]
     new_columns = good_csv[columns]
     test = new_columns.dropna(subset=["Living area", "Bedrooms", "Price"])

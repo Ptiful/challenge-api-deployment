@@ -6,61 +6,17 @@ from sklearn.linear_model import LinearRegression
 
 def predict():
     # importer
-    df = pd.read_csv("assets\cleaned_data.csv")
-
-    # removing bedrooms, liv_room_surf, frontages, bathrooms, id, basement,elevator,
-    # surroundings,flood_zone,heating, showers, toilets, furnished, energy_class, heating,flood_zone
-    df = df.drop(
-        columns=[
-            "kitchen_type",
-            "status_build",
-            "bedrooms",
-            "liv_room_surf",
-            "frontages",
-            "bathrooms",
-            "id",
-            "basement",
-            "elevator",
-            "surroundings",
-            "flood_zone",
-            "heating",
-            "showers",
-            "toilets",
-            "furnished",
-            "heating",
-            "flood_zone",
-        ]
-    )
-
-    # dropna living_area, price
-    df = df.dropna(subset=["living_area", "price"])
-
-    # replace swimming_pool None with 0
-    df["swimming_pool"] = df["swimming_pool"].fillna(0)
-
-    # "building_type",
-    # "building_subtype",
-    # "living_area",
-    # "terrace",
-    # "garden",
-    # "swimming_pool",
-    # "energy_class",
-    # "zipcode",
-    # "municipality",
-    # "province",
-
-    # print(df.isnull().sum())
-    # print(df)
+    df = pd.read_csv("test.csv")
 
     # Defining x and y value
-    # x = df["price"]
-    # y = df["living_area"]
+    x = df["price"]
+    y = df["area"]
 
-    # slope, intercept, r = stats.linregress(x, y)
+    slope, intercept, r = stats.linregress(x, y)
 
     # # Doing my recursive prediction function
-    # return slope * x + intercept
-    # print(r)
+    return slope * x + intercept
+    print(r)
 
     # creating plt with two priors statements
     # mymodel = list(map(prediction, x))
@@ -73,7 +29,7 @@ def predict():
     # print(r)
 
     # Defining X and y
-    X = df[["living_area", "swimming_pool"]]
+    X = df[["area", "swimming-pool"]]
     y = df["price"]
 
     # establishing regression by X and y
