@@ -1,0 +1,17 @@
+{
+    "area": 123,
+    "property-type": "APARTMENT",
+    "rooms_number": 0,
+    "zip-code": 0,
+    "land_area": 0,
+    "item.garden": true,
+    "garden_area": 0,
+    "equipped_kitchen": true,
+    "full_address": "string",
+    "swimming_pool": true,
+    "furnished": true,
+    "open_fire": true,
+    "terrace": true,
+    "terrace_area": 0,
+    "building_stat": "NEW"
+}

@@ -9,7 +9,8 @@ import numpy as np
 def predict():
     # importer
     df = pd.read_csv("test.csv")
-
+    # df = pd.read_json("data.json")
+    
     # Defining x and y value
     X = df.drop(
         columns=[
@@ -22,7 +23,7 @@ def predict():
         axis=1,
     )
     Y = df["price"]
-    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=1)
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.1)
     regression = LinearRegression()
     regression.fit(x_train, y_train)
     prediction = print(regression.predict(x_test))

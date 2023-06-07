@@ -4,10 +4,9 @@ import numpy as np
 
 
 def preprocess():
-    df = pd.read_csv("assets/immoweb_properties_data.csv",engine='python')
+    df = pd.read_csv("assets/immoweb_properties_data.csv", engine="python")
 
     df = df[df["url"].str.contains("new-real-estate-project") == False]
-
     df.rename(
         columns={
             "Living area": "area",
