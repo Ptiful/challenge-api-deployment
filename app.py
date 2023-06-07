@@ -39,21 +39,21 @@ async def root():
 async def prediction(item: Item):
     data = {
         "area": item.area,
-        "property-type": item.property_type,
+        # "property-type": item.property_type,
         "rooms_number": item.rooms_number,
         "zip-code": item.zip_code,
-        "land-area": item.land_area,
-        "item.garden": item.garden,
-        "garden-area": item.garden_area,
-        "equipped-kitchen": item.equipped_kitchen,
-        "full-address": item.full_address,
-        "swimming-pool": item.swimming_pool,
-        "furnished": item.furnished,
-        "open-fire": item.open_fire,
-        "terrace": item.terrace,
-        "terrace-area": item.terrace_area,
-        "building-stat": item.building_state,
+        # "land-area": item.land_area,
+        # "garden": item.garden,
+        # "garden-area": item.garden_area,
+        # "equipped-kitchen": item.equipped_kitchen,
+        # "full-address": item.full_address,
+        # "swimming-pool": item.swimming_pool,
+        # "furnished": item.furnished,
+        # "open-fire": item.open_fire,
+        # "terrace": item.terrace,
+        # "terrace-area": item.terrace_area,
+        # "building-stat": item.building_state,
     }
-    with open("data.json", "w") as f:
-        json.dump(data, f)
-    return print(predict)
+    result = predict(data)
+    print(result)
+    return result[0]

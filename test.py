@@ -1,8 +1,11 @@
-def calc(a, b):
-    return a + b
+def calc(numbers: dict):
+    return numbers["q"] + numbers["b"]
 
-
-a = calc(1, 4)
+data = {
+    "q": 1,
+    "b": 2
+}
+a = calc(data)
 
 
 def test(a, b):
