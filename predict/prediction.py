@@ -18,14 +18,14 @@ def predict(data):
     X = train[
         [
             "area",
-            "rooms-number",
-            "zip-code",
+            # "rooms-number",
+            # "zip-code",
             # "land-area",
             # "garden",
             # "garden-area",
-            # "equipped-kitchen",
+            "equipped-kitchen",
             # "full-address",
-            # "swimming-pool",
+            "swimming-pool",
             # "furnished",
             # "open-fire",
             # "terrace",
@@ -44,6 +44,8 @@ def predict(data):
     model = sms.OLS(y_train, x_train).fit()
 
     # data = pd.DataFrame.to_dict(data)
-    prediction = model.predict([data["area"], data["rooms_number"], data["zip-code"]])
-    
+    prediction = model.predict(
+        [data["area"], data["equipped-kitchen"], data["swimming-pool"]]
+    )
+
     return prediction
