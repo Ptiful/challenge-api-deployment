@@ -4,7 +4,7 @@ from sklearn.impute import SimpleImputer
 
 
 def clean():
-    df = pd.read_csv("assets\immoweb_properties_data2.csv")
+    df = pd.read_csv("assets/immoweb_properties_data2.csv")
 
     df = df[df["url"].str.contains("new-real-estate-project") == False]
 
@@ -174,7 +174,7 @@ def clean():
 
     print(df.shape)
 
-    df.to_csv("assets\\test.csv")
+    df.to_csv("assets/test.csv")
 
 
 clean()

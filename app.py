@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from preprocessing.real_cleaning_data import preprocess
 from predict.prediction import predict
 from pydantic import BaseModel
 from typing import Literal

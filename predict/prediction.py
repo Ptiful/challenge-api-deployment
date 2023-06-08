@@ -1,16 +1,11 @@
-from typing import List
 import pandas as pd
-import matplotlib.pyplot as plt
-from scipy import stats
-from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import statsmodels.api as sms
-import numpy as np
 
 
 def predict(data):
     # importer
-    train = pd.read_csv("test.csv")
+    train = pd.read_csv("assets/test.csv")
 
     # Defining x and y value
     # X =
